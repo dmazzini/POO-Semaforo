@@ -1,4 +1,4 @@
-'From Cuis 5.0 of 7 November 2016 [latest update: #3068] on 16 April 2017 at 2:34:33 pm'!
+'From Cuis 5.0 of 7 November 2016 [latest update: #3068] on 16 April 2017 at 2:58:16 pm'!
 'Description '!
 !provides: 'POO-Semaforo' 1 2!
 !classDefinition: #ReguladorDeTransitoTest category: #'POO-Semaforo'!
@@ -73,7 +73,7 @@ unReguladorDeTransito detenerTransito.
 
 self assert: true equals: (unReguladorDeTransito transitoDetenido).! !
 
-!ReguladorDeTransitoTest methodsFor: 'as yet unclassified' stamp: 'dim 4/16/2017 11:05:55'!
+!ReguladorDeTransitoTest methodsFor: 'as yet unclassified' stamp: 'dim 4/16/2017 14:56:11'!
 testTransitoPermitidoDespuesDePermitirTransito
 
 |unReguladorDeTransito|
@@ -82,7 +82,7 @@ unReguladorDeTransito := ReguladorDeTransito initial.
 
 unReguladorDeTransito permitirTransito.
 
-self assert: false equals: (unReguladorDeTransito transitoDetenido).! !
+self assert: true equals: (unReguladorDeTransito transitoPermitido).! !
 
 !SemaforoTest methodsFor: 'as yet unclassified' stamp: 'dim 4/16/2017 11:11:39'!
 testAvisaPrecaucionPorEncendidoAlEncender
@@ -146,6 +146,10 @@ permitirTransito
 transitoDetenido
 		^unaSenialDeDetencion prendida.
 ! !
+
+!ReguladorDeTransito methodsFor: 'as yet unclassified' stamp: 'dim 4/16/2017 14:57:36'!
+transitoPermitido
+	^unaSenialDeAvance prendida.! !
 
 !ReguladorDeTransito class methodsFor: 'as yet unclassified' stamp: 'dim 4/16/2017 10:58:24'!
 initial
